@@ -8,7 +8,7 @@ import bucketModel from '../../src/rank-bucket/index';
 const orderArray = bucketModel.bucketRank(bucketModel.disorderArray);
 const isOrderArray = orderArray.every((item, i) => {
         if (i === orderArray.length-1) return true;
-        return (orderArray[i+1] >= orderArray[i])
+        return (+orderArray[i+1] >= +orderArray[i])
 });
 
 describe('桶排序是否有效', () => {

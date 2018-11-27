@@ -7,6 +7,7 @@ import Base from '../base/index';
 class MergeClass extends Base {
     constructor(props) {
         super(props)
+        this.mergeRank = this.mergeRank.bind(this);
     }
 
     /**
@@ -47,7 +48,7 @@ class MergeClass extends Base {
      * @param arr
      * @returns {Array}
      */
-    mergeRank(arr = []) {
+    mergeRank(arr = []){
         try {
             if (!Array.isArray(arr)) {
                 throw('argument should be Array');

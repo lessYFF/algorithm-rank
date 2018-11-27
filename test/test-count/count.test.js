@@ -8,7 +8,7 @@ import countModel from '../../src/rank-count/index';
 const orderArray = countModel.countRank(countModel.disorderArray);
 const isOrderArray = orderArray.every((item, i) => {
       if (i === orderArray.length-1) return true;
-return (orderArray[i+1] >= orderArray[i])
+      return (+orderArray[i+1] >= +orderArray[i])
 });
 
 describe('计数排序是否有效', () => {

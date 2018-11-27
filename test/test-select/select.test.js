@@ -8,7 +8,7 @@ import selectModel from '../../src/rank-select/index';
 const orderArray = selectModel.selectRank(selectModel.disorderArray);
 const isOrderArray = orderArray.every((item, i) => {
       if (i === orderArray.length-1) return true;
-      return (orderArray[i+1] >= orderArray[i])
+      return (+orderArray[i+1] >= +orderArray[i])
 });
 
 describe('选择排序是否有效', () => {

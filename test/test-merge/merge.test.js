@@ -8,7 +8,7 @@ import mergeModel from '../../src/rank-merge/index';
 const orderArray = mergeModel.mergeRank(mergeModel.disorderArray);
 const isOrderArray = orderArray.every((item, i) => {
       if (i === orderArray.length-1) return true;
-return (orderArray[i+1] >= orderArray[i])
+return (+orderArray[i+1] >= +orderArray[i])
 });
 
 describe('归并排序是否有效', () => {

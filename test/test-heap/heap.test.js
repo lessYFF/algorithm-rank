@@ -8,7 +8,7 @@ import heapModel from '../../src/rank-heap/index';
 const orderArray = heapModel.heapRank(heapModel.disorderArray);
 const isOrderArray = orderArray.every((item, i) => {
       if (i === orderArray.length-1) return true;
-return (orderArray[i+1] >= orderArray[i])
+return (+orderArray[i+1] >= +orderArray[i])
 });
 
 describe('堆排序是否有效', () => {

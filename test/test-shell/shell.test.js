@@ -8,7 +8,7 @@ import shellModel from '../../src/rank-shell/index';
 const orderArray = shellModel.shellRank(shellModel.disorderArray);
 const isOrderArray = orderArray.every((item, i) => {
       if (i === orderArray.length-1) return true;
-return (orderArray[i+1] >= orderArray[i])
+return (+orderArray[i+1] >= +orderArray[i])
 });
 
 describe('希尔排序是否有效', () => {

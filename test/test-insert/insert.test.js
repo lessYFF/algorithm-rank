@@ -8,7 +8,7 @@ import insertModel from '../../src/rank-insert/index';
 const orderArray = insertModel.insertRank(insertModel.disorderArray);
 const isOrderArray = orderArray.every((item, i) => {
       if (i === orderArray.length-1) return true;
-        return (orderArray[i+1] >= orderArray[i])
+        return (+orderArray[i+1] >= +orderArray[i])
 });
 
 describe('插入排序是否有效', () => {

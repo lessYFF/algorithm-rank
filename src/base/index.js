@@ -25,16 +25,19 @@ export default class Base {
      * 性能分析方法
      * @param {Array} rankFnList - 待分析的排序方法数组
      */
-    analyzePerformance(rankFnList) {
+    async analyzePerformance(rankFnList, showDetail = false) {
         try {
-            rankFnList.map(item => {
+            for (let item of rankFnList) {
                 const startTime = Date.now();
-                const orderArray = item(this.disorderArray);
+                const orderArray = await item(this.disorderArray);
                 const diffTime = Date.now() - startTime;
+                const rankFnName = item.name.replace('bound ', '');
 
-                console.log('<<----%s--->>花费时间:%d ms', item.name, diffTime);
-                console.log('<<----%s--->>排序后数组结果:%o', item.name, orderArray.join('-->'));
-            });
+                console.log('<<----%s--->>花费时间:%d ms', rankFnName, diffTime);
+                if (showDetail) {
+                    console.log('<<----%s--->>排序后数组结果:%o', rankFnName, orderArray.join('-->'));
+                }
+            }
         } catch (err) {
             console.error('analyzePerformance error', err);
         }

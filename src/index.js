@@ -9,13 +9,22 @@ import BaseClass from './base/index';
 import bubbleModel from './rank-bubble/index';
 import bucketModel from './rank-bucket/index';
 import countModel from './rank-count/index';
-import HeapModel from './rank-heap/index';
-import InsertModel from './rank-insert/index';
-import MergeModel from './rank-merge/index';
-import QuickModel from './rank-quick/index';
-import RadixModel from './rank-radix/index';
-import SelectModel from './rank-select/index';
-import ShellModel from './rank-shell/index';
+import heapModel from './rank-heap/index';
+import insertModel from './rank-insert/index';
+import mergeModel from './rank-merge/index';
+import quickModel from './rank-quick/index';
+import radixModel from './rank-radix/index';
+import selectModel from './rank-select/index';
+import shellModel from './rank-shell/index';
 
 const BaseModel = new BaseClass(1000);
-BaseModel.analyzePerformance([bubbleModel.bubbleRank]);
+BaseModel.analyzePerformance([
+    bubbleModel.bubbleRank,
+    selectModel.selectRank,
+    insertModel.insertRank,
+    shellModel.shellRank,
+    mergeModel.mergeRank,
+    quickModel.quickRank,
+    heapModel.heapRank,
+    countModel.countRank,
+], true);
